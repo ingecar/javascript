@@ -10,6 +10,7 @@ let numero1, numero2, NUM1;
 const pi = 3.14156;
 let estado = true;
 let pais = "Colombia";
+let nulo = null;
 
 numero1 = 2;
 numero1 = 0;
@@ -22,6 +23,7 @@ multiplicacion = numero1 * numero2;
 console.log("Hola Javascript");
 console.log(numero1);
 console.log(suma);
+console.log(nulo);
 
 // Concatenar valores
 console.log("El primer numero es: " + numero1);
