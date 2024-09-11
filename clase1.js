@@ -20,7 +20,8 @@ suma = numero1 + numero2;
 resta = numero1 - numero2;
 multiplicacion = numero1 * numero2;
 // Mensajes en pantalla
-console.log("Hola Javascript");
+// truco imprimer el texto en color y tamaño en consola del navegador
+console.log("%cHello, World", "color: blue; font-size: 40px");
 console.log(numero1);
 console.log(suma);
 console.log(nulo);

@@ -22,9 +22,9 @@ console.log(aleat1);
 let aleat2 = Math.floor(Math.random() * (20 - 10 + 1)) + 10;
 console.log(aleat2);
 
-console.log(
-  `Los numeros que ingtresaste son ${n1} y ${n2} y suman = ${n1 + n2}`
-);
+// console.log(
+//   `Los numeros que ingtresaste son ${n1} y ${n2} y suman = ${n1 + n2}`
+// );
 
 // Estructura if else
 let edad = 16;
