@@ -50,44 +50,69 @@
  * Si tecleo el 3 el script me responderá que estamos en Primavera
  */
 
-let estacion = parseInt(prompt("Escriba un numero de 1 y 12 para la estacion"));
-switch (estacion) {
-  case 12:
-  case 1:
-  case 2:
-    console.log("Invierno");
-    break;
-  case 3:
-  case 4:
-  case 5:
-    console.log("Primavera");
-    break;
-  case 6:
-  case 7:
-  case 8:
-    console.log("Verano");
-    break;
-  case 9:
-  case 10:
-  case 11:
-    console.log("Otoño");
-    break;
+// let estacion = parseInt(prompt("Escriba un numero de 1 y 12 para la estacion"));
+// switch (estacion) {
+//   case 12:
+//   case 1:
+//   case 2:
+//     console.log("Invierno");
+//     break;
+//   case 3:
+//   case 4:
+//   case 5:
+//     console.log("Primavera");
+//     break;
+//   case 6:
+//   case 7:
+//   case 8:
+//     console.log("Verano");
+//     break;
+//   case 9:
+//   case 10:
+//   case 11:
+//     console.log("Otoño");
+//     break;
 
-  default:
-    console.log("Estacion desconocida");
-    break;
-}
+//   default:
+//     console.log("Estacion desconocida");
+//     break;
+// }
 
 // Ejercicio 4
 /**
  * En una sala de juegos existen cuatro salas: Consolas, Juegos 2D, Juegos 3D y
 Realidad Virtual.
-Si un usuario paga 4 créditos puede acceder a todas, si paga 3 solo podrá acceder a
-las tres primeras,
-Si paga 2 a las dos primeras y si paga 1 solo a la primera sala.
+Si un usuario paga 4 créditos puede acceder a todas,
+si paga 3 solo podrá acceder a las tres primeras,
+Si paga 2 a las dos primeras 
+si paga 1 solo a la primera sala.
+
 Tecleo que pago 2 créditos, el script me dirá que puedo acceder a las salas de
 consola y juegos 2D.
  */
+
+// let creditos = parseInt(
+//   prompt("Bienvenido a la sala de juegos: Ingresa tu numero de creditos")
+// );
+
+// switch (creditos) {
+//   case 4:
+//     console.log("Puedes ingresar a todas las salas");
+//     break;
+//   case 3:
+//     console.log("Puedes ingresar a las salas Consolas, Juegos 2D y Juegos 3D");
+//     break;
+//   case 2:
+//     console.log("Puedes ingresar a las salas de Consolas y Juegos 2D");
+//     break;
+//   case 1:
+//     console.log("Puedes ingresar solo a la salas de Consolas");
+//     break;
+
+//   default:
+//     console.log("Indica un numero válido de créditos entre 1 y 4");
+//     break;
+// }
 
 // Ejercicio 5
 /**
@@ -98,3 +123,30 @@ Si la compra está por encima de 300 mil hasta 500 mil pesos le descuenta un 10%
 Si la compra supera los 400 mil pesos le descuenta un 15%
 Es decir: hago una compra de 150 mil: pago 150000 - 5% de 150000, o sea 142,500 pesos.
  */
+
+let compra = parseInt(prompt("Ingrese el valor de la compra: "));
+
+switch (true) {
+  case compra > 0 && compra <= 100000:
+    console.log(`El valor a pagar es: ${compra}`);
+    break;
+  case compra > 100000 && compra <= 300000:
+    console.log(
+      `Su compra con descuento del 5% es: ${compra - (compra * 5) / 100}`
+    );
+    break;
+  case compra > 300000 && compra <= 400000:
+    console.log(
+      `Su compra con descuento del 10% es: ${compra - (compra * 10) / 100}`
+    );
+    break;
+  case compra > 400000:
+    console.log(
+      `Su compra con descuento del 15% es: ${compra - (compra * 15) / 100}`
+    );
+    break;
+
+  default:
+    console.log("Ingrese un monto valido de compra");
+    break;
+}
