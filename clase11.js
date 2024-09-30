@@ -49,9 +49,11 @@ for (let element of estudiantes) {
 }
 
 // Recorrer el arreglo con map
-// EstA opción devuelve un nuevo arrefglo
+// Esta opción devuelve un nuevo arrefglo
 console.log("\nArreglo recorrido con Map");
-let student = estudiantes.map((est) => est);
+let student = estudiantes.map((est, index) => est + " " + (index + 1));
+
+console.log("Normal", estudiantes);
 console.log("Map", student);
 
 // Imprmir un dato especifico
