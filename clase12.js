@@ -148,6 +148,10 @@ class Producto {
   // constructor
   constructor(nombre, precio, cantidad) {
     this._nombre = nombre;
+    precio > 0
+      ? (this.precio = precio)
+      : ((this.precio = 0),
+        console.log("El precio no puede ser negativa, se agrego un 0"));
     this._precio = precio;
     cantidad > 0
       ? (this._cantidad = cantidad)
@@ -174,48 +178,73 @@ class Producto {
     this._nombre = cantidad;
   }
   // Métodos
+  static crearProducto() {
+    let productos;
+    let precios;
+    let cantidad;
+
+    productos = prompt("Ingrese el nombre del producto");
+
+    do {
+      precios = parseFloat(prompt("Ingrese el precio del producto"));
+    } while (precios <= 0);
+
+    do {
+      cantidad = parseInt(prompt("Ingrese la cantidad del producto"));
+    } while (cantidad <= 0);
+
+    return new Producto(productos, precios, cantidad);
+  }
 
   mostrarProducto() {
     console.log(
       `El nombre del producto es: ${this._nombre}, el precio es $${this._precio} y la cantidad es ${this._cantidad}`
     );
   }
+
   mostrarNommbreProducto() {
     console.log(`El nombre del producto es: ${this._nombre}`);
   }
+
   valorTotal() {
     return this._precio * this._cantidad;
   }
+
   modificarCantidad(cantidad) {
     cantidad > 0
       ? (this._cantidad = cantidad)
       : console.log("Cantidad no modificada, ingrese un valor mayor a cero");
   }
+
+  aumentarCantidad(cantidad) {
+    this._cantidad += cantidad;
+  }
+  restarCantidad(cantidad) {
+    this._cantidad -= cantidad;
+  }
 }
-// let prod1 = new Producto("Lapiz", 1200, 0);
 
-let nommbre = prompt("ingrese el nombre del producto");
-let precio = parseFloat(prompt("ingrese el precio del producto"));
-let cantidad = parseInt(prompt("ingrese la cantidad del producto"));
-
-let prod1 = new Producto(nommbre, precio, cantidad);
-let prod2 = new Producto("Borrador", 600, 1);
-
+let prod1 = Producto.crearProducto();
 prod1.mostrarProducto();
-prod2.mostrarProducto();
-// prod2.modificarCantidad(-3);
+
+// let prod1 = new Producto("Lapiz", 1200, 0);
+// let prod2 = new Producto("Borrador", 600, 1);
+
+// prod2.mostrarProducto();
+// prod2.modificarCantidad(8);
+// prod2.aumentarCantidad(1);
 
 // console.log(`Èl valor total del producto 1 es: ${prod1.valorTotal()}`);
-console.log(
-  `Èl valor total del inventario del producto ${
-    prod1.nombre
-  } es: $${prod1.valorTotal()}`
-);
-console.log(
-  `Èl valor total del inventario del producto ${
-    prod2.nombre
-  } es: $${prod2.valorTotal()}`
-);
+// console.log(
+//   `Èl valor total del inventario del producto ${
+//     prod1.nombre
+//   } es: $${prod1.valorTotal()}`
+// );
+// console.log(
+//   `Èl valor total del inventario del producto ${
+//     prod2.nombre
+//   } es: $${prod2.valorTotal()}`
+// );
 
 // prod1.mostrarNommbreProducto();
 // prod2.mostrarNommbreProducto();
