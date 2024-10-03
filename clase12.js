@@ -148,15 +148,8 @@ class Producto {
   // constructor
   constructor(nombre, precio, cantidad) {
     this._nombre = nombre;
-    precio > 0
-      ? (this.precio = precio)
-      : ((this.precio = 0),
-        console.log("El precio no puede ser negativa, se agrego un 0"));
     this._precio = precio;
-    cantidad > 0
-      ? (this._cantidad = cantidad)
-      : ((this._cantidad = 0),
-        console.log("La cantidad no puede ser negativa, se agrego un 0"));
+    this._cantidad = cantidad;
   }
   // getters y setters
   get nombre() {
@@ -182,16 +175,17 @@ class Producto {
     let productos;
     let precios;
     let cantidad;
-
-    productos = prompt("Ingrese el nombre del producto");
+    do {
+      productos = prompt("Ingrese el nombre del producto");
+    } while (!productos);
 
     do {
       precios = parseFloat(prompt("Ingrese el precio del producto"));
-    } while (precios <= 0);
+    } while (precios < 0 || isNaN(precios));
 
     do {
       cantidad = parseInt(prompt("Ingrese la cantidad del producto"));
-    } while (cantidad <= 0);
+    } while (cantidad < 0 || isNaN(cantidad));
 
     return new Producto(productos, precios, cantidad);
   }
@@ -219,12 +213,14 @@ class Producto {
   aumentarCantidad(cantidad) {
     this._cantidad += cantidad;
   }
+
   restarCantidad(cantidad) {
     this._cantidad -= cantidad;
   }
 }
 
 let prod1 = Producto.crearProducto();
+prod1._cantidad = 10;
 prod1.mostrarProducto();
 
 // let prod1 = new Producto("Lapiz", 1200, 0);
